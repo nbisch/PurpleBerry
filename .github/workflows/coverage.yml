@@ -5,7 +5,7 @@ on:
       - main
       - alpha
       - dev
-  pull_request:
+  pull_request_target:
     branches:
       - main
       - alpha
