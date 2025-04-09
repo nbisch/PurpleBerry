@@ -69,6 +69,15 @@ export class StorageAdapter {
 
 
 	/**
+	 * List all permission Schema names
+	 * @returns string[] List of all permission schemas
+	 * @category Storage
+	 */
+	public listPermissionSchemas(): string[] {
+		return Object.keys(this.__permissionSchemaTable);
+	}
+
+	/**
 	 * Check if a permission schema with the given name exists
 	 * @param {string} permissionSchemaName
 	 * @returns boolean
@@ -126,6 +135,15 @@ export class StorageAdapter {
 			throw new GenericPermissionManagerError(StorageAdapter.generateErrorMessage(permissionSchemaName, false));
 		}
 		delete this.__permissionSchemaTable[permissionSchemaName];
+	}
+
+	/**
+	 * List all role names
+	 * @returns string[] List of all roles
+	 * @category Storage
+	 */
+	public listRoles(): string[] {
+		return Object.keys(this.__roleSchemaTable);
 	}
 
 	/**
