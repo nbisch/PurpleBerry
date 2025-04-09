@@ -200,7 +200,7 @@ export class PermissionManager {
 		const cacheKey = StorageAdapter.createCacheKeyFromStringArray(roles);
 		// Try to get a cached version of the context
 		let ctx = this.__storageAdapter.getCompiledRoleContext(cacheKey);
-		if(!ctx){
+		if (!ctx) {
 			ctx = this.compileRoleContext(roles);
 			this.__storageAdapter.addCompiledRoleContext(cacheKey, ctx); // Store compiled context to cache
 		}
@@ -208,6 +208,14 @@ export class PermissionManager {
 	}
 
 	// Storage Connectors
+	/**
+	 * List all permission Schema names
+	 * @category Schema storage
+	 */
+	public listPermissionSchemas(): string[] {
+		return this.__storageAdapter.listPermissionSchemas();
+	}
+
 	/**
 	 * Check if a permission schema with the given name exists
 	 * @param {string} permissionSchemaName
@@ -253,6 +261,14 @@ export class PermissionManager {
 	 */
 	public deletePermissionSchema(permissionSchemaName: string) {
 		this.__storageAdapter.deletePermissionSchema(permissionSchemaName);
+	}
+
+	/**
+	 * List all roles
+	 * @category Schema storage
+	 */
+	public listRoles(): string[] {
+		return this.__storageAdapter.listRoles();
 	}
 
 	/**
