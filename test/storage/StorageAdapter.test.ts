@@ -71,6 +71,10 @@ describe('Storage Adapter Testing', () => {
 				expect(() => adapter.addPermissionSchema('knownSchema', permissionSchema)).not.toThrow();
 			});
 
+			test('Check if permission schema list is correct', () => {
+				expect(adapter.listPermissionSchemas()).toEqual(['knownSchema']);
+			});
+
 			test('Check if permission schema exists', () => {
 				expect(adapter.doesPermissionSchemaExist('knownSchema')).toBe(true);
 			});
@@ -135,6 +139,10 @@ describe('Storage Adapter Testing', () => {
 
 			test('Check if role schema exists', () => {
 				expect(adapter.doesRoleSchemaExist('knownRoleSchema')).toBe(true);
+			});
+
+			test('Check if role list is correct', () => {
+				expect(adapter.listRoles()).toEqual(['knownRoleSchema']);
 			});
 
 			test('Try to add role schema to existing one', () => {
